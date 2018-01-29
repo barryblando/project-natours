@@ -1,0 +1,260 @@
+/*
+
+apply a natural box layout model to all elements,
+but allowing components to change, so use inherit.
+
+This gives you the box model you want. Applies it to all elements.
+Turns out many browsers already use border-box for a lot of
+form elements (which is why inputs and text areas look diff at width:100%;)
+But applying this to all elements is safe and wise.
+
+-- Keyword values --
+box-sizing: content-box;
+box-sizing: border-box;
+
+-- Global values --
+box-sizing: inherit;
+box-sizing: initial;
+box-sizing: unset;
+
+*/
+
+$color-primary: #55c57a;
+$color-primary-light: #7ed56f;
+$color-primary-dark: #28b485;
+
+$color-white: #fff;
+$color-grey-dark: #777;
+$color-black: #000;
+
+*,
+*:not(img),
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* root: HTML */
+
+html {
+  /* 10px easy to calculate w/ relative units but use percentage,
+  if user change browser font size page will be responsive */
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 10px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+
+  box-sizing: border-box;
+}
+
+.header {
+  /**
+  * vh = relative length, that every point, the height of this element,
+  * should be 95% almost 100% of the viewport height, user's visible area of a web page
+  * give the element a little bit of breathing room, try resizing the browser
+  * the white bar/space is the remaining 5% of viewport height
+  */
+  height: 95vh;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.8),
+    rgba($color-primary-dark, 0.8)),
+    url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top; /* top of image won't be cropped when resizing*/
+  position: relative; /* origin */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* polygon (top-left, top-right, bottom-right, bottom-left), x y pos */
+
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* translate(X, Y) X starts at left to right, Y starts at top to bottom */
+    transform: translate(-50%, -50%);
+    /* Button Discover is treat as text so use text-align: center */
+    text-align: center;
+  }
+}
+
+/*
+  * animation-name: keyframe Name
+  * animation-duration: 0s
+  * animation-timing-function: ease
+  * animation-delay: 0s
+  * animation-iteration-count: 1
+  * animation-direction: normal
+  * animation-fill-mode: none
+  * animation-play-state: running
+    More info: https://developer.mozilla.org/en-US/docs/Web/CSS/animation
+*/
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+  /* fix little shaking in the animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem;
+
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+  }
+}
+
+@keyframes moveInLeft {
+  /* Start */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  40% {
+    color: $color-white;
+  }
+
+  45% {
+    color: $color-grey-dark;
+  }
+
+  80% {
+    transform: translateX(1rem); /* move a little and back */
+  }
+
+  /* Finish */
+  100% {
+    color: $color-white;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* Start */
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem); /* move a little and back */
+  }
+
+  /* Finish */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInBottom {
+  /* Start */
+  0% {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+
+  /* Finish */
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+.btn {
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all 0.2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, .2);
+
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    /* active state is in relation with initial link state */
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* position it behind button parent */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+  &--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    /* apply the styles to zero percent before the animation starts */
+    animation-fill-mode: backwards;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+

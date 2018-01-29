@@ -1,0 +1,15 @@
+{
+  "name": "project-natours",
+  "version": "1.0.0",
+  "description": "Nature Tours",
+  "main": "index.js",
+  "repository": "https://github.com/barryblando/project-natours.git",
+  "scripts": {
+    "compile:sass": "node-sass app/sass/main.scss app/css/style.css -w"
+  },
+  "author": "Retr0_0x315 <barryblando@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.7.2"
+  }
+}
