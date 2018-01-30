@@ -1,107 +1,3 @@
-/*
-
-apply a natural box layout model to all elements,
-but allowing components to change, so use inherit.
-
-This gives you the box model you want. Applies it to all elements.
-Turns out many browsers already use border-box for a lot of
-form elements (which is why inputs and text areas look diff at width:100%;)
-But applying this to all elements is safe and wise.
-
--- Keyword values --
-box-sizing: content-box;
-box-sizing: border-box;
-
--- Global values --
-box-sizing: inherit;
-box-sizing: initial;
-box-sizing: unset;
-
-*/
-*,
-*:not(img),
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
-
-/* root: HTML */
-html {
-  /* 10px easy to calculate w/ relative units but use percentage,
-  if user change browser font size page will be responsive */
-  font-size: 62.5%; }
-
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /* font-size: 10px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box; }
-
-.header {
-  /**
-  * vh = relative length, that every point, the height of this element,
-  * should be 95% almost 100% of the viewport height, user's visible area of a web page
-  * give the element a little bit of breathing room, try resizing the browser
-  * the white bar/space is the remaining 5% of viewport height
-  */
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  /* top of image won't be cropped when resizing*/
-  position: relative;
-  /* origin */
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /* polygon (top-left, top-right, bottom-right, bottom-left), x y pos */ }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /* translate(X, Y) X starts at left to right, Y starts at top to bottom */
-    transform: translate(-50%, -50%);
-    /* Button Discover is treat as text so use text-align: center */
-    text-align: center; }
-
-/*
-  * animation-name: keyframe Name
-  * animation-duration: 0s
-  * animation-timing-function: ease
-  * animation-delay: 0s
-  * animation-iteration-count: 1
-  * animation-direction: normal
-  * animation-fill-mode: none
-  * animation-play-state: running
-    More info: https://developer.mozilla.org/en-US/docs/Web/CSS/animation
-*/
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  /* fix little shaking in the animation */
-  backface-visibility: hidden;
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation: moveInLeft 1s ease-out; }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out; }
-
 @keyframes moveInLeft {
   /* Start */
   0% {
@@ -142,6 +38,69 @@ body {
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+/*
+  apply a natural box layout model to all elements,
+  but allowing components to change, so use inherit.
+
+  This gives you the box model you want. Applies it to all elements.
+  Turns out many browsers already use border-box for a lot of
+  form elements (which is why inputs and text areas look diff at width:100%;)
+  But applying this to all elements is safe and wise.
+
+  -- Keyword values --
+  box-sizing: content-box;
+  box-sizing: border-box;
+
+  -- Global values --
+  box-sizing: inherit;
+  box-sizing: initial;
+  box-sizing: unset;
+*/
+*,
+*:not(img),
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  /* root: HTML */
+  /* 10px easy to calculate w/ relative units but use percentage,
+  if user change browser font size page will be responsive */
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 10px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem;
+  box-sizing: border-box; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  /* fix little shaking in the animation */
+  backface-visibility: hidden;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation: moveInLeft 1s ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -188,3 +147,34 @@ body {
   animation: moveInBottom .5s ease-out .75s;
   /* apply the styles to zero percent before the animation starts */
   animation-fill-mode: backwards; }
+
+.header {
+  /**
+  * vh = relative length, that every point, the height of this element,
+  * should be 95% almost 100% of the viewport height, user's visible area of a web page
+  * give the element a little bit of breathing room, try resizing the browser
+  * the white bar/space is the remaining 5% of viewport height
+  */
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  /* top of image won't be cropped when resizing*/
+  position: relative;
+  /* origin */
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* polygon (top-left, top-right, bottom-right, bottom-left), x y pos */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /* translate(X, Y) X starts at left to right, Y starts at top to bottom */
+    transform: translate(-50%, -50%);
+    /* Button Discover is treat as text so use text-align: center */
+    text-align: center; }
