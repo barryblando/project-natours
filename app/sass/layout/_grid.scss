@@ -1,0 +1,54 @@
+.row {
+  max-width: $grid-width;
+  background-color: #eee;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    // set the last row not have margin in bottom using :not()
+    // select everything except the last child
+    margin-bottom: $gutter-vertical;
+  }
+
+  @include clearfix;
+
+  [class^="col-"] {
+    // ^ means select class that starts with col-, $ ends with col-, * select all with col-
+    background-color: orangered;
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutter-horizontal;
+    }
+  }
+
+  .col-1-of-2 {
+    // ((1140px - 60px) / 2 col)
+    width: calc((100% - #{$gutter-horizontal}) / 2);
+  }
+
+  .col-1-of-3 {
+    // ((1140px - 2 * 60px) / 3 col)
+    width: calc((100% - 2 * #{$gutter-horizontal}) / 3);
+  }
+
+  .col-2-of-3 {
+    // (2col * ((1140px - 2 * 60px) / 3 col)) + 60px)
+    width: calc(2 * ((100% - 2 * #{$gutter-horizontal}) / 3) + #{$gutter-horizontal});
+  }
+
+  .col-1-of-4 {
+    // ((1140px - 3 * 60px) / 3 col)
+    width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
+  }
+
+  .col-2-of-4 {
+    // (2col * (1140px - 3 * 60px) / 3 col) + 60px)
+    width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
+  }
+
+  .col-3-of-4 {
+    // (2col * ((1140px - 3 * 60px) / 3 col)) + 2 * 60px)
+    width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
+  }
+
+}
