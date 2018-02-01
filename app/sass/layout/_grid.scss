@@ -17,6 +17,7 @@
     float: left;
 
     &:not(:last-child) {
+      // apply to every col except :last-child
       margin-right: $gutter-horizontal;
     }
   }
@@ -37,17 +38,17 @@
   }
 
   .col-1-of-4 {
-    // ((1140px - 3 * 60px) / 3 col)
+    // ((1140px - 3 * 60px) / 4 col)
     width: calc((100% - 3 * #{$gutter-horizontal}) / 4);
   }
 
   .col-2-of-4 {
-    // (2col * (1140px - 3 * 60px) / 3 col) + 60px)
+    // (2col * (1140px - 3 * 60px) / 4 col) + 60px)
     width: calc(2 * ((100% - 3 * #{$gutter-horizontal}) / 4) + #{$gutter-horizontal});
   }
 
   .col-3-of-4 {
-    // (2col * ((1140px - 3 * 60px) / 3 col)) + 2 * 60px)
+    // (3col * ((1140px - 3 * 60px) / 4 col)) + 2 * 60px)
     width: calc(3 * ((100% - 3 * #{$gutter-horizontal}) / 4) + 2 * #{$gutter-horizontal});
   }
 
