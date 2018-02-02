@@ -10,6 +10,7 @@
   "author": "Retr0_0x315 <barryblando@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "node-sass": "^4.7.2"
+    "node-sass": "^4.7.2",
+    "sass-lint": "^1.12.1"
   }
 }
