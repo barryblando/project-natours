@@ -1,11 +1,11 @@
 .row {
   max-width: $grid-width;
-  background-color: #eee;
+  // background-color: #eee;
   margin: 0 auto;
 
   &:not(:last-child) {
-    // set the last row not have margin in bottom using :not()
-    // select everything except the last child
+    // select everything except the last child using :not()
+    // INFO: :last-child selector allows you to target the last element directly inside its containing/parent element.
     margin-bottom: $gutter-vertical;
   }
 
@@ -13,11 +13,10 @@
 
   [class^="col-"] {
     // ^ means select class that starts with col-, $ ends with col-, * select all with col-
-    background-color: orangered;
+    // background-color: orangered;
     float: left;
 
     &:not(:last-child) {
-      // apply to every col except :last-child
       margin-right: $gutter-horizontal;
     }
   }

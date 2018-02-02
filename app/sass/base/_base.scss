@@ -1,21 +1,19 @@
-/*
-  apply a natural box layout model to all elements,
-  but allowing components to change, so use inherit.
+// apply a natural box layout model to all elements,
+// but allowing components to change, so use inherit.
 
-  This gives you the box model you want. Applies it to all elements.
-  Turns out many browsers already use border-box for a lot of
-  form elements (which is why inputs and text areas look diff at width:100%;)
-  But applying this to all elements is safe and wise.
+// This gives you the box model you want. Applies it to all elements.
+// Turns out many browsers already use border-box for a lot of
+// form elements (which is why inputs and text areas look diff at width:100%;)
+//  But applying this to all elements is safe and wise.
 
-  -- Keyword values --
-  box-sizing: content-box;
-  box-sizing: border-box;
+// -- Keyword values --
+// box-sizing: content-box;
+//  box-sizing: border-box;
 
-  -- Global values --
-  box-sizing: inherit;
-  box-sizing: initial;
-  box-sizing: unset;
-*/
+// -- Global values --
+// box-sizing: inherit;
+// box-sizing: initial;
+// box-sizing: unset;
 
 *,
 *:not(img),
@@ -27,9 +25,9 @@
 }
 
 html {
-  /* root: HTML */
-  /* 10px easy to calculate w/ relative units but use percentage,
-  if user change browser font size page will be responsive */
+  // root: HTML
+  // 10px easy to calculate w/ relative units but use percentage,
+  // if user change browser font size page will be responsive
   // This defines what 1rem is
   font-size: 62.5%;
 }
