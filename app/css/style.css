@@ -193,6 +193,7 @@ body {
     .composition__photo:hover {
       outline: 1.5rem solid #55c57a;
       transform: scale(1.05) translateY(-0.5rem);
+      -webkit-transform: scale(1.05) translateY(-0.5rem);
       box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
       z-index: 20; }
   .composition:hover .composition__photo:not(:hover) {
@@ -205,7 +206,8 @@ body {
   text-align: center;
   border-radius: 3px;
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
-  transition: transform .3s; }
+  transition: transform .3s;
+  -webkit-transition: transform .3s; }
   .feature-box__icon {
     font-size: 6rem;
     margin-bottom: .5rem;
@@ -215,7 +217,8 @@ body {
     -webkit-background-clip: text;
     color: transparent; }
   .feature-box:hover {
-    transform: translateY(-1.5rem) scale(1.03); }
+    transform: translateY(-1.5rem) scale(1.03);
+    -webkit-transform: translateY(-1.5rem) scale(1.03); }
 
 .row {
   max-width: 114rem;
