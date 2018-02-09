@@ -4,7 +4,7 @@
   &__photo {
     // always use percentages on images if possible, so it will nicely scale with the viewport
     width: 55%;
-    box-shadow: 0 1.5rem 4rem rgba($color-black, .4);
+    box-shadow: $black-forty-percent;
     border-radius: 2px;
     position: absolute;
     z-index: 10;
@@ -36,7 +36,6 @@
   }
 
   &:hover &__photo:not(:hover) {
-    // select the composition photo which is not hovered.
-    transform: scale(.95);
+    transform: scale(.95); // select the composition photo which is not hovered.
   }
 }
