@@ -1,0 +1,62 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: rgba($color-white, .6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem; // 6 + 3rem offset of shape from translateX
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left; // element must be floated in order for circle to work
+    -webkit-shape-outside: circle(50% at 50% 50%); // shape-outside only works if element has width & height declared
+    shape-outside: circle(50% at 50% 50%); // make content float around the shape circle element. 50%, half of the width & height 15/2 = 7.5
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%); // make shape circle
+    transform: translateX(-3rem) skewX(12deg);  // when adjusting position of a floated element use transform: translate
+    position: relative;
+  }
+
+  &__img {
+    height: 100%; // Hundred % of parent height which is 15rem
+    transform: translateX(-4rem) scale(1.4);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; // fix shape circle problem when translating
+    transition: all .5s;
+    // NOTE: Below fixes image wiggling after hovering parent element, Browser Bug.
+    filter: blur(0.3px); /* the lowest value I could get on my machine: 0.12805650383234025436px */
+    image-rendering: -webkit-optimize-contrast; /* just in case quality degrades */
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%); // X Y
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden; // fix text shaking
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

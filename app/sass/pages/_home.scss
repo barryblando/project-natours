@@ -18,7 +18,7 @@
     & > * {
       transform: skewY(7deg);
     }
-    // .section-features > * { } selects direct / first degree child that come across which is row
+    // .section-features > * { } selects direct / first degree child that come across which is row(only)
     // .section-features * { } selects all child and child of child
 }
 
@@ -28,3 +28,7 @@
   margin-top: -11.3rem;
 }
 
+.section-stories {
+  padding: 15rem 0;
+  position: relative;
+}
