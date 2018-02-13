@@ -4,7 +4,8 @@
 # PrivateNamingConvention
 
 files:
-  include: '**/*.s+(a|c)ss'
+  include: 'app/sass/**/*.s+(a|c)ss'
+  ignore: 'app/sass/vendor/**/*.s+(a|c)ss'
 options:
   formatter: stylish
   merge-default-rules: false

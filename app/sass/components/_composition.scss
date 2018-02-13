@@ -2,8 +2,7 @@
   position: relative;
 
   &__photo {
-    // always use percentages on images if possible, so it will nicely scale with the viewport
-    width: 55%;
+    width: 55%; // always use percentages on images if possible, so it will nicely scale with the viewport
     box-shadow: $black-forty-percent;
     border-radius: 2px;
     position: absolute;
