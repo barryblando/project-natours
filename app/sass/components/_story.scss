@@ -27,7 +27,7 @@
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden; // fix shape circle problem when translating
     transition: all .5s;
-    // NOTE: Below fixes image wiggling after hovering parent element, Browser Bug.
+    // NOTE: Below fixes image wiggling after hovering parent element, Browser Bug(Chrome 64.0.3282.167).
     filter: blur(0.3px); /* the lowest value I could get on my machine: 0.12805650383234025436px */
     image-rendering: -webkit-optimize-contrast; /* just in case quality degrades */
   }
