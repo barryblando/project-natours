@@ -76,7 +76,7 @@ sass/
 
   [More info](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
 
-## INFO : FIXES
+## INFO/TIPS : FIXES
 
 * Tip #1:
 
@@ -90,4 +90,17 @@ backface-visibility: hidden;
 ```css
 /* fix video/images occupying other sections, fill entire parent while still maintaining aspect ratio */
 object-fit: cover;
+```
+
+* Tip #3:
+
+```css
+/*
+  INFO: :not() select everything except the last child
+  INFO: :last-child selector allows you to target the last element
+  directly inside its containing/parent element.
+*/
+&:not(:last-child) {
+  margin-bottom: $gutter-vertical;
+}
 ```
