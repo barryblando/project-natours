@@ -14,8 +14,10 @@ $color-tertiary-dark: #5643fa;
 $color-grey-light-1: #f7f7f7;
 $color-grey-light-2: #eee;
 
+$color-grey-dark-1: #777;
+$color-grey-dark-2: #999;
+
 $color-white: #fff;
-$color-grey-dark: #777;
 $color-black: #000;
 
 // FONT SIZES
@@ -27,5 +29,6 @@ $gutter-vertical: 8rem; // 80px Gutter Y
 $gutter-horizontal: 6rem; // 60px Gutter X
 
 // BOX SHADOWS
-$black-forty-percent: 0 1.5rem 4rem rgba($color-black, .4);
 $black-fifteen-percent: 0 1.5rem 4rem rgba($color-black, .15);
+$black-twenty-percent: 0 1.5rem 4rem rgba($color-black, .2);
+$black-forty-percent: 0 1.5rem 4rem rgba($color-black, .4);
