@@ -104,3 +104,30 @@ object-fit: cover;
   margin-bottom: $gutter-vertical;
 }
 ```
+
+* Tip #4:
+
+```css
+/* NOTE: Below fixes image wiggling after hovering parent element, Browser Bug(Chrome 64.0.3282.167). */
+filter: blur(0.3px); /* the lowest value I could get on my machine: 0.12805650383234025436px */
+image-rendering: -webkit-optimize-contrast; /* just in case quality degrades */
+```
+
+* Tip #5:
+
+```css
+ /* label/element should be after the input/element in order to be selected with the sibling selector ~ */
+&__input:placeholder-shown + &__label { }
+```
+
+* Tip #6:
+
+```css
+/*
+    .section-features > * { } selects direct / first degree child that come across which is row(only)
+    .section-features * { } selects all child and child of child
+*/
+& > * {
+  transform: skewY(7deg);
+}
+```
