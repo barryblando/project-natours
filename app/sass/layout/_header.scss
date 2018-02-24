@@ -31,7 +31,7 @@
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%); // translate(X, Y) X starts at left to right, Y starts at top to bottom
+    transform: translate(-50%, -50%); // Offset X Y
     text-align: center;  // Button Discover is treat as text 'cause of inline-block so use text-align: center
   }
 }
