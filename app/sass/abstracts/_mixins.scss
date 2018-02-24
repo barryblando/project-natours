@@ -5,3 +5,11 @@
     clear: both;
   }
 }
+
+@mixin position-center {
+  // translate(X, Y) X starts at left to right, Y starts at top to bottom
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // shift it back by half of its size using a negative 50%
+}

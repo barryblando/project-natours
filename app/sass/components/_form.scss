@@ -41,7 +41,8 @@
     transition: all .3s;
   }
 
-  // label/element should be after the input/element in order to be selected with the sibling selector ~
+  // label/element should be after the input/element in order to be selected with the adjacent sibling selector +
+  // label that come immediately after any input of the same parent element
   &__input:placeholder-shown + &__label {
     // as soon as someone types on input these styles will be gone and label would be animated
     opacity: 0;
@@ -50,6 +51,7 @@
   }
 
   &__radio-group {
+    // both must be inline-block
     width: 49%;
     display: inline-block;
   }
@@ -81,10 +83,7 @@
       height: 1.3rem;
       width: 1.3rem;
       border-radius: 50%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      @include position-center;
       background-color: $color-primary;
       opacity: 0;
       transition: opacity .2s;
@@ -92,7 +91,7 @@
   }
 
   // Set radio-button::after opacity to 1 when selected & checked that are preceded by a radio-input element with the same parent
-  // select sibling radio-label and then child radio-button
+  // select sibling radio-label and then child radio-button using general sibling selector ~
   &__radio-input:checked ~ &__radio-label &__radio-button::after {
     opacity: 1;
   }
