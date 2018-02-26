@@ -1,0 +1,105 @@
+.popup {
+  height: 100vh;
+  width: 100%;
+  // put at the top using fixed
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba($color-black, .8);
+  z-index: 9999;
+
+  // hide popup
+  opacity: 0;
+  visibility: hidden;
+  transition: all .3s;
+
+  &__content {
+    @include position-absolute-center;
+    width: 75%;
+    background-color: $color-white;
+    box-shadow: 0 2rem 4rem rgba($color-black, .2);
+    border-radius: 3px;
+    display: table;
+    overflow: hidden; // fix image overlapping
+    opacity: 0;
+    // to use multiple transform you have to declare again its recent declared value
+    transform: translate(-50%, -50%) scale(.25);
+    transition: all .5s .2s; // put delay .2s -> background then content
+
+    // test
+    // height: 50rem;
+  }
+
+  &__left {
+    width: 33.333333%; // we want left box to use 1/3 of parent width
+    display: table-cell;
+  }
+
+  &__right {
+    width: 66.6666667%; // we want left box to use 2/3 of parent width
+    display: table-cell;
+    vertical-align: middle;
+    padding: 3rem 5rem;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.4rem;
+    margin-bottom: 4rem;
+
+    // column layout for paragraph
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem; // 1em = 14px
+    -moz-column-rule: 1px solid $color-grey-light-2;
+    column-count: 2;
+    column-gap: 4rem; // 1em = 14px
+    column-rule: 1px solid $color-grey-light-2;
+
+    // In order to use this property, set the document language
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+
+  // NOTE: OPEN STATE
+
+  &:target {
+    // applies to the element which is target in button and that is baseUrl/#popup & id = popup
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:target &__content {
+    // put it back to normal state
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  // NOTE: CLOSE STATE
+
+
+  &__close {
+    // when close is clicked the target will be baseUrl/#section-tours & id = section-tours
+    &:link,
+    &:visited {
+      color: $color-grey-dark-1;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      line-height: 1; // decrease the content height so it will be the same height with X
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}
