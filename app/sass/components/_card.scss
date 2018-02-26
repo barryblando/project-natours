@@ -148,7 +148,7 @@
   // NOTE: BACK SIDE STYLING
   &__cta {
     // INFO: position the child element top-left by 50% and we shift it back by half of its size using a negative 50%
-    @include position-center;
+    @include position-absolute-center;
     width: 90%; // fix button button width
     text-align: center;
   }

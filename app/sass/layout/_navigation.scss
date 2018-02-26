@@ -51,7 +51,7 @@
   }
 
   &__list {
-    @include position-center;
+    @include position-absolute-center;
     list-style: none;
     text-align: center;
     width: 100%;
@@ -143,18 +143,18 @@
     top: 1rem;
   }
 
-  // + When the checkbox is selected, then we seelect its sibling which is button and then child which is the icon
+  // + When the checkbox is selected, then we select its sibling which is button and then child which is the icon
   &__checkbox:checked + &__button &__icon {
     background-color: transparent;
   }
 
   &__checkbox:checked + &__button &__icon::before {
     top: 0;
-    transform: rotate(135deg)
+    transform: rotate(135deg);
   }
 
   &__checkbox:checked + &__button &__icon::after {
     top: 0;
-    transform: rotate(-135deg)
+    transform: rotate(-135deg);
   }
 }

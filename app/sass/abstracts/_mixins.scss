@@ -6,7 +6,7 @@
   }
 }
 
-@mixin position-center {
+@mixin position-absolute-center {
   // translate(X, Y) X starts at left to right, Y starts at top to bottom
   position: absolute;
   top: 50%;
