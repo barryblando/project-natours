@@ -34,7 +34,10 @@
     }
   }
 
+  // when composition is hovered select the photo that is nested inside which is not hovered (like in line 28) and change scale to .95
+  // so it happens as soon as you enter any of these elements. So the other ones are not hovered and so they shrink
   &:hover &__photo:not(:hover) {
-    transform: scale(.95); // select the composition photo which is not hovered.
+    transform: scale(.95);
   }
+  // composition:hover composition__photo:not(:hover)
 }
