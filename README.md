@@ -1,6 +1,14 @@
 # Project-Natours
 
-BEM, Advanced CSS and SASS, using Animations w/o JS with Simple Setup using NPM Scripts for a Landing Page.
+* B.E.M
+
+* Advanced CSS and SASS
+
+* Animations without JS
+
+* NPM  Scripts
+
+* Desktop Approach
 
 ## SASS/SCSS Lint Installation
 

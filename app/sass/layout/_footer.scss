@@ -4,6 +4,10 @@
   font-size: 1.4rem;
   color: $color-grey-light-1;
 
+  @include respond(tab-port) {
+    padding: 8rem 0;
+  }
+
   &__logo-box {
     text-align: center; // inline element behave just like text
     margin-bottom: 8rem;
@@ -19,6 +23,11 @@
     padding-top: 2rem;
     // border top whole content
     display: inline-block; // inline-block doesn't occupy 100% of its available width, only the one that the content needs.
+
+    @include respond(tab-port) {
+      width: 100%;
+      text-align: center;
+    }
   }
 
   &__list {
@@ -57,5 +66,11 @@
     padding-top: 2rem;
     width: 80%;
     float: right;
+
+    @include respond(tab-port) {
+      width: 100%;
+      float: none;
+      text-align: center;
+    }
   }
 }
