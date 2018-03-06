@@ -28,6 +28,8 @@
 //   - tab-land
 //   - big-desktop
 
+// ORDER: Base + Typography > General Layout + grid > page layout > components
+
 // when in media query em & rem can't be affected by root: HTML font-size setting, it is always dependent on browser default font size
 // Gonna use em 'cause rem fail in some of the browser, ems are best option for media queries
 // 1em = 16px
