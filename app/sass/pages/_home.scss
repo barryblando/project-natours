@@ -2,6 +2,11 @@
   background-color: $color-grey-light-1;
   padding: 25rem 0;
   margin-top: -20vh; // 95vh - 75vh
+
+  @include respond(tab-port) {
+    padding: 20rem 0;
+    margin-top: -15vh;
+  }
 }
 
 .section-features {
@@ -20,22 +25,38 @@
     }
     // .section-features > * { } selects direct / first degree child that come across which is row(only)
     // .section-features * { } selects all child and child of child
+
+    @include respond(tab-port) {
+      padding: 10rem 0;
+    }
 }
 
 .section-tours {
   background-color: $color-grey-light-1;
   padding: 25rem 0 15rem 0;
   margin-top: -11.3rem;
+
+  @include respond(tab-port) {
+    padding: 20rem 0 10rem 0;
+  }
 }
 
 .section-stories {
   padding: 15rem 0;
   position: relative;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .section-book {
   padding: 15rem 0;
   background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .book {
