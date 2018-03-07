@@ -88,21 +88,21 @@ sass/
 
 * Tip #1:
 
-```css
-/* fixes problems like animations and translating things */
-backface-visibility: hidden;
+```scss
+  /* fixes problems like animations and translating things */
+  backface-visibility: hidden;
 ```
 
 * Tip #2:
 
-```css
-/* fix video/images occupying other sections, fill entire parent while still maintaining aspect ratio */
-object-fit: cover;
+```scss
+  /* fix video/images occupying other sections, fill entire parent while still maintaining aspect ratio */
+  object-fit: cover;
 ```
 
 * Tip #3:
 
-```css
+```scss
 /*
   INFO: :not() select everything except the last child
   INFO: :last-child selector allows you to target the last element
@@ -115,27 +115,77 @@ object-fit: cover;
 
 * Tip #4:
 
-```css
-/* NOTE: Below fixes image wiggling after hovering parent element, Browser Bug(Chrome 64.0.3282.167). */
-filter: blur(0.3px); /* the lowest value I could get on my machine: 0.12805650383234025436px */
-image-rendering: -webkit-optimize-contrast; /* just in case quality degrades */
+```scss
+  /* NOTE: Below fixes image wiggling after hovering parent element, Browser Bug(Chrome 64.0.3282.167). */
+  filter: blur(0.3px); /* the lowest value I could get on my machine: 0.12805650383234025436px */
+  image-rendering: -webkit-optimize-contrast; /* just in case quality degrades */
 ```
 
-* Tip #5:
+* Tip #5: Sibling Selector
 
-```css
- /* label/element should be after the input/element in order to be selected with the sibling selector ~ */
-&__input:placeholder-shown + &__label { }
+```scss
+  /* element should be after the input/element in order to be selected with the sibling selector ~ */
+  &__input:placeholder-shown ~ &__label { }
+
 ```
 
-* Tip #6:
+* Tip #6: Adjacent Selector
 
-```css
-/*
+```scss
+  /**
+  * label/element should be after the input/element in order to be selected
+  * with the adjacent sibling selector +
+  * label that come immediately after any input of the same parent element
+  */
+  &__input:placeholder-shown + &__label { }
+```
+
+* Tip #6: Child combinator
+
+```scss
+  /*
     .section-features > * { } selects direct / first degree child that come across which is row(only)
     .section-features * { } selects all child and child of child
-*/
-& > * {
-  transform: skewY(7deg);
-}
+  */
+  & > * {
+    transform: skewY(7deg);
+  }
+```
+
+* Tip #7: MEDIA QUERIES: ORDER MATTERS
+
+```scss
+  /* The order of Media query is the key. The one that after will override the rules before it. No Conflict.*/
+
+  /**
+  * It means that, if you apply two rules that collide to the same elements,
+  * it will choose the last one that was declared,
+  * unless the first one has the !important marker or is more specific
+  */
+
+  /* DESKTOP APPROACH : < (max-width) */
+  @include respond(tab-land) { // width < 1200?
+    font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) { // width < 900?
+    font-size: 50%; // 1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(phone) { // width < 600?
+    font-size: 37.5%; // 1 rem = 6px, 6/16 = 37.5%
+  }
+
+  /* MOBILE FIRST : > * (min-width) */
+  @include respond(phone) { // width > 600?
+    font-size: 37.5%; // 1 rem = 6px, 6/16 = 37.5%
+  }
+
+  @include respond(tab-port) { // width > 900?
+    font-size: 50%; // 1 rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(tab-land) { // width > 1200?
+    font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
+  }
 ```
