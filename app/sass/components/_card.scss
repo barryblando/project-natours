@@ -1,9 +1,11 @@
 .card {
+  // ------------------------
   // NOTE: FUNCTIONALITY
+  // ------------------------
   perspective: 150rem;  // use perspective as if it was moving towards
   -moz-perspective: 150rem;
   position: relative;
-  height: 52rem; // fix parent height 'cause of child position absolute
+  height: 52rem; // fix parent(container) height and to make the front side the same height as the back side
 
   &__side {
     height: 52rem;
@@ -56,7 +58,9 @@
     transform: rotateY(0);
   }
 
+  // ----------------------------
   // NOTE: FRONT SIDE STYLING
+  // ----------------------------
   &__picture {
     background-size: cover;
     height: 23rem;
@@ -145,7 +149,9 @@
     }
   }
 
+  // --------------------------
   // NOTE: BACK SIDE STYLING
+  // --------------------------
   &__cta {
     // INFO: position the child element top-left by 50% and we shift it back by half of its size using a negative 50%
     @include position-absolute-center;
@@ -167,5 +173,56 @@
   &__price-value {
     font-size: 6rem;
     font-weight: 100;
+  }
+
+  // --------------------------------------------------------------------------
+  // NOTE: Rewrite the cards, we don't want flipping cards when in tab-port
+  // --------------------------------------------------------------------------
+
+  @include respond(tab-port) {
+    height: auto;  // fix parent(container) height and to make the front side the same height as the back side
+    border-radius: 3px;
+    background-color: $color-white;
+    box-shadow: $black-fifteen-percent;
+
+    &__side {
+      height: auto;
+      position: relative; // occupy the same space
+      box-shadow: none; // set box-shadow to none so it won't cause conflict with the back clip-path
+
+      &--back {
+        transform: rotateY(0);
+        -webkit-clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+
+    &:hover &__side--front {
+      transform: rotateY(0);
+    }
+
+    &__details {
+      padding: 1rem;
+    }
+
+    // --------------------------
+    // NOTE: BACK SIDE STYLING
+    // --------------------------
+    &__cta {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: translate(0);
+      width: 100%;
+      padding: 7rem 4rem 4rem 4rem;
+    }
+
+    &__price-box {
+      margin-bottom: 3rem;
+    }
+
+    &__price-value {
+      font-size: 4rem;
+    }
   }
 }
