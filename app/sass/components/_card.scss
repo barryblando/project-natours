@@ -176,7 +176,7 @@
   }
 
   // --------------------------------------------------------------------------
-  // NOTE: Rewrite the cards, we don't want flipping cards when in tab-port
+  // NOTE: We don't want flipping cards when in tab-port ( < 900px )
   // --------------------------------------------------------------------------
 
   @include respond(tab-port) {
@@ -223,6 +223,20 @@
 
     &__price-value {
       font-size: 4rem;
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // NOTE: Adjust heading when on phone Phone ( < 600px )
+  // --------------------------------------------------------------------------
+
+  @include respond(phone) {
+    // --------------------------
+    // NOTE: FRONT SIDE STYLING
+    // --------------------------
+
+    &__heading {
+      width: 100%;
     }
   }
 }

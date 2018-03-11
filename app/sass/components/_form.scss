@@ -21,19 +21,19 @@
       width: 100%;
     }
 
-      &:focus {
-        outline: 0;
-        box-shadow: 0 1rem 2rem rgba($color-black, .1);
-        border-bottom: 3px solid $color-primary;
-      }
+    &:focus {
+      outline: 0;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $color-primary;
+    }
 
-      &:focus:invalid {
-        border-bottom: 3px solid $color-secondary-dark;
-      }
+    &:focus:invalid {
+      border-bottom: 3px solid $color-secondary-dark;
+    }
 
-      &::-webkit-input-placeholder {
-        color: $color-grey-dark-2;
-      }
+    &::-webkit-input-placeholder {
+      color: $color-grey-dark-2;
+    }
   }
 
   &__label {

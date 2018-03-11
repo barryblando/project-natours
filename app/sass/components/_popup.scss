@@ -35,7 +35,7 @@
     display: table-cell;
 
     @include respond(tab-port) {
-      width: 100%;
+      display: none;
     }
   }
 
@@ -44,10 +44,6 @@
     display: table-cell;
     vertical-align: middle;
     padding: 3rem 5rem;
-
-    @include respond(tab-port) {
-      width: 100%;
-    }
   }
 
   &__img {
@@ -72,6 +68,22 @@
     -ms-hyphens: auto;
     -webkit-hyphens: auto;
     hyphens: auto;
+
+    @include respond(phone) {
+    // column layout for paragraph
+    -moz-column-count: 1;
+    -moz-column-gap: none;
+    -moz-column-rule: none;
+    column-count: 1;
+    column-gap: none;
+    column-rule: none;
+
+    // In order to use this property, set the document language
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    }
   }
 
   // NOTE: OPEN STATE
@@ -89,8 +101,6 @@
   }
 
   // NOTE: CLOSE STATE
-
-
   &__close {
     // when close is clicked the target will be baseUrl/#section-tours & id = section-tours
     &:link,
