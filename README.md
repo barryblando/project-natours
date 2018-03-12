@@ -71,6 +71,12 @@ sass/
 * CSS Grid Layout
 * Layout Centering Techniques [Guide](https://dev.to/alanfall/css-layout-centering-techniques--608)
 
+## Responsive images - 3 Use Cases
+
+* Resolution Switching - Large screen to small screen - (Decrease image resolution on smaller screen)
+* Density Switching - @2x screen (high-res) to @1x screen (low res) - (Half the image resolution on @1x screen)
+* Art Direction - Large screen to small screen (Image details were preserved but different image on smaller screen)
+
 ## Animation Syntax
 
 * animation-name: keyframe Name
