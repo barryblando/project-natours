@@ -71,11 +71,45 @@ sass/
 * CSS Grid Layout
 * Layout Centering Techniques [Guide](https://dev.to/alanfall/css-layout-centering-techniques--608)
 
-## Responsive images - 3 Use Cases
+## Responsive images - 3 Use Cases - [More Info](https://github.com/barryblando/modern-workflow)
 
 * Resolution Switching - Large screen to small screen - (Decrease image resolution on smaller screen)
+
+```html
+<!--
+  using Width descriptor (w) see Chrome Devtool
+  171/900 = 20vw (~20% width of the viewport width 900px)
+  171/600 = 30vw (~30% width of the viewport width 600px)
+  300px as default size
+  sizes use to inform the browser about the approximate width of the image at diff. viewport width,
+  and which to use for the current viewport width and the current display resolution.
+-->
+
+<img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+     sizes="(max-width: 900px) 20vw, (max-width: 600px) 30vw, 300px"
+     alt="Photo 1" class="composition__photo composition__photo--p1"
+     src="img/nat-1-large.jpg">
+```
+
 * Density Switching - @2x screen (high-res) to @1x screen (low res) - (Half the image resolution on @1x screen)
+
+```html
+<!-- using Density descriptor (1x, 2x) see Chrome Devtool -->
+<img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
+```
+
 * Art Direction - Large screen to small screen (Image details were preserved but different image on smaller screen)
+
+```html
+<!--
+  Art Direction using picture element
+  - basically force browser to use small-1x image in case that this media query applies
+-->
+<picture class="footer__logo">
+  <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
+  <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
+</picture>
+```
 
 ## Animation Syntax
 
