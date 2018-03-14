@@ -10,6 +10,8 @@
 
 * Desktop Approach
 
+* Modern CSS Properties but before using them always check [CanIUse](https://caniuse.com/)
+
 ## SASS/SCSS Lint Installation
 
 * Install sass lint extension on VSCode. Install NPM Package sass-lint. Create .sass-lint.yml and add rules. Done.
@@ -227,5 +229,18 @@ sass/
 
   @include respond(tab-land) { // width > 1200?
     font-size: 56.25%; // 1 rem = 9px, 9/16 = 56.25%
+  }
+```
+
+* Tip #8: Graceful Degradation using supports @ rule (feature-queries)
+
+```scss
+  // --------------------------------------------------------------
+  // If the browser support this property then apply this style
+  // --------------------------------------------------------------
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, .3);
   }
 ```

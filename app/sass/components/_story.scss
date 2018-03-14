@@ -23,12 +23,22 @@
     width: 15rem;
     height: 15rem;
     float: left; // element must be floated in order for circle to work
-    -webkit-shape-outside: circle(50% at 50% 50%); // shape-outside only works if element has width & height declared
-    shape-outside: circle(50% at 50% 50%); // make content float around the shape circle element. 50%, half of the width & height 15/2 = 7.5
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%); // make shape circle
-    transform: translateX(-3rem) skewX(12deg);  // when adjusting position of a floated element use transform: translate
+    transform: translateX(-3rem) skewX(12deg); // when adjusting position of a floated element use transform: translate
     position: relative;
+    overflow: hidden; // fixed overflowing image size
+    border-radius: 50%;
+
+    // --------------------------------------------------------------------------------------
+    // If browser support this property then apply this style else apply default style
+    // this shape-outside is currently not supported by Older Firefox & Safari
+    // --------------------------------------------------------------------------------------
+    @supports (clip-path: circle(0 at 0 0)) or (-webkit-clip-path: circle(0 at 0 0)) {
+      -webkit-shape-outside: circle(50% at 50% 50%); // shape-outside only works if element has width & height declared
+      shape-outside: circle(50% at 50% 50%); // make content float around the shape circle element. 50%, half of the width & height 15/2 = 7.5
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%); // make shape circle
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);

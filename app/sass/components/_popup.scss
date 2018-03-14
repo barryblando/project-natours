@@ -7,11 +7,21 @@
   left: 0;
   background-color: rgba($color-black, .8);
   z-index: 9999;
-
   // hide popup
   opacity: 0;
   visibility: hidden;
   transition: all .3s;
+
+  // --------------------------------------------------------------
+  // INFO: Graceful degradation using support @ rule
+  // If the browser support this property then apply this style
+  // Current Browser Supporting Backdrop-filter: Safari
+  // --------------------------------------------------------------
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, .3);
+  }
 
   &__content {
     @include position-absolute-center;
