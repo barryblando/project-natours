@@ -5,7 +5,7 @@
   // give the element a little bit of breathing room, try resizing the browser
   // the white bar/space is the remaining 5% of viewport height
   // --------------------------------------------------------------------------------------------
-  height: 95vh;
+  height: 85vh;
   background-image: linear-gradient(
     to right bottom,
     rgba($color-primary-light, 0.8),
@@ -17,10 +17,21 @@
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); // polygon (top-left, top-right, bottom-right, bottom-left), x y pos
 
+  // ------------------------------------------------------------------------------------
+  // If browser support this property then apply this style else apply default style
+  // ------------------------------------------------------------------------------------
+  @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    height: 95vh; // 95% almost 100% of the viewport height
+  }
+
   // ------------------------------------------------------------------------------------------------
   // Whenever the resolution is higher than 192 dots per inch and larger than 600px or(,) > 2000px
+  // -webkit-min-device-pixel-ratio for Safari
   // ------------------------------------------------------------------------------------------------
   @media (min-resolution: 192dpi) and (min-width: 37.5em),
+         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
          (min-width: 125em) {
     background-image: linear-gradient(
     to right bottom,
