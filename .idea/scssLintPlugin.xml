@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ScssLintProjectComponent">
-    <option name="scssLintConfigFile" value="D:\XAMPP\htdocs\project-natours\.sass-lint.yml" />
-    <option name="scssLintExecutable" value="D:\XAMPP\htdocs\project-natours\node_modules\.bin\sass-lint.cmd" />
-    <option name="pluginEnabled" value="true" />
-  </component>
-</project>
