@@ -28,12 +28,12 @@
   }
 
   &__background {
+    // button is 1rem higher & wider than background
     height: 6rem;
     width: 6rem;
     border-radius: 50%;
     position: fixed;
-    // button is 1rem higher & wider than background
-    // starts at top-right spanning over the entire viewport because of full height & width
+    // starts at top-right spanning over the entire viewport because of full height & width when checked
     top: 6.5rem;
     right: 6.5rem;
     background-image: radial-gradient($color-primary-light, $color-primary-dark);
@@ -112,9 +112,9 @@
 
   // NOTE: Functionality
 
-  // if label is clicked the checkbox is checked because of id & for must be the same name
+  // if label is clicked then checkbox is checked because of id & for must be the same name
   &__checkbox:checked ~ &__background {
-    transform: scale(80);
+    transform: scale(80); // scale background to 80
   }
 
   &__checkbox:checked ~ &__nav{
