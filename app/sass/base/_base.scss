@@ -56,3 +56,12 @@ body {
     padding: 0;
   }
 }
+
+// --------------------------
+// Change Selection style
+// --------------------------
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}
