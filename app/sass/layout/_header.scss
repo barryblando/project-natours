@@ -30,9 +30,9 @@
   // Whenever the resolution is higher than 192 dots per inch and larger than 600px or(,) > 2000px
   // -webkit-min-device-pixel-ratio for Safari
   // ------------------------------------------------------------------------------------------------
-  @media (min-resolution: 192dpi) and (min-width: 37.5em),
-         (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
-         (min-width: 125em) {
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+         only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+         only screen and (min-width: 125em) {
     background-image: linear-gradient(
     to right bottom,
     rgba($color-primary-light, 0.8),
