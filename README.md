@@ -12,6 +12,8 @@
 
 * Modern CSS Properties but before using them always check [CanIUse](https://caniuse.com/)
 
+* Responsive Grid System [For more Info](https://zellwk.com/blog/responsive-grid-system/)
+
 ## SASS/SCSS Lint Installation
 
 * Install sass lint extension on VSCode. Install NPM Package sass-lint. Create .sass-lint.yml and add rules. Done.
@@ -78,39 +80,39 @@ sass/
 * Resolution Switching - Large screen to small screen - (Decrease image resolution on smaller screen)
 
 ```html
-<!--
-  using Width descriptor (w) see Chrome Devtool
-  171/900 = 20vw (~20% width of the viewport width 900px)
-  171/600 = 30vw (~30% width of the viewport width 600px)
-  300px as default size
-  sizes use to inform the browser about the approximate width of the image at diff. viewport width,
-  and which to use for the current viewport width and the current display resolution.
--->
+  <!--
+    using Width descriptor (w) see Chrome Devtool
+    171/900 = 20vw (~20% width of the viewport width 900px)
+    171/600 = 30vw (~30% width of the viewport width 600px)
+    300px as default size
+    sizes use to inform the browser about the approximate width of the image at diff. viewport width,
+    and which to use for the current viewport width and the current display resolution.
+  -->
 
-<img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
-     sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
-     alt="Photo 1" class="composition__photo composition__photo--p1"
-     src="img/nat-1-large.jpg">
+  <img srcset="img/nat-1.jpg 300w, img/nat-1-large.jpg 1000w"
+      sizes="(max-width: 56.25em) 20vw, (max-width: 37.5em) 30vw, 300px"
+      alt="Photo 1" class="composition__photo composition__photo--p1"
+      src="img/nat-1-large.jpg">
 ```
 
 * Density Switching - @2x screen (high-res) to @1x screen (low res) - (Half the image resolution on @1x screen)
 
 ```html
-<!-- using Density descriptor (1x, 2x) see Chrome Devtool -->
-<img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
+  <!-- using Density descriptor (1x, 2x) see Chrome Devtool -->
+  <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
 ```
 
 * Art Direction - Large screen to small screen (Image details were preserved but different image on smaller screen)
 
 ```html
-<!--
-  Art Direction using picture element
-  - basically force browser to use small-1x image in case that this media query applies
--->
-<picture class="footer__logo">
-  <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
-  <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
-</picture>
+  <!--
+    Art Direction using picture element
+    - basically force browser to use small-1x image in case that this media query applies
+  -->
+  <picture class="footer__logo">
+    <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x" media="(max-width: 37.5em)">
+    <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="Full logo" class="footer__logo">
+  </picture>
 ```
 
 ## Animation Syntax
@@ -145,14 +147,14 @@ sass/
 * Tip #3:
 
 ```scss
-/*
-  INFO: :not() select everything except the last child
-  INFO: :last-child selector allows you to target the last element
-  directly inside its containing/parent element.
-*/
-&:not(:last-child) {
-  margin-bottom: $gutter-vertical;
-}
+ /**
+   * INFO: :not() select everything except the last child
+   * INFO: :last-child selector allows you to target the last element
+   * directly inside its containing/parent element.
+   */
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
 ```
 
 * Tip #4:
@@ -175,20 +177,20 @@ sass/
 
 ```scss
   /**
-  * label/element should be after the input/element in order to be selected
-  * with the adjacent sibling selector +
-  * label that come immediately after any input of the same parent element
-  */
+    * label/element should be after the input/element in order to be selected
+    * with the adjacent sibling selector +
+    * label that come immediately after any input of the same parent element
+    */
   &__input:placeholder-shown + &__label { }
 ```
 
 * Tip #6: Child combinator
 
 ```scss
-  /*
-    .section-features > * { } selects direct / first degree child that come across which is row(only)
-    .section-features * { } selects all child and child of child
-  */
+  /**
+    * .section-features > * { } selects direct / first degree child that come across which is row(only)
+    * .section-features * { } selects all child and child of child
+    */
   & > * {
     transform: skewY(7deg);
   }
@@ -197,13 +199,13 @@ sass/
 * Tip #7: MEDIA QUERIES: ORDER MATTERS
 
 ```scss
-  /* The order of Media query is the key. The one that after will override the rules before it. No Conflict.*/
+  /* The order of Media query is the key. The one that after will override the rules before it. No Conflict. */
 
   /**
-  * It means that, if you apply two rules that collide to the same elements,
-  * it will choose the last one that was declared,
-  * unless the first one has the !important marker or is more specific
-  */
+    * It means that, if you apply two rules that collide to the same elements,
+    * it will choose the last one that was declared,
+    * unless the first one has the !important marker or is more specific
+    */
 
   /* DESKTOP APPROACH : < (max-width) */
   @include respond(tab-land) { // width < 1200?
