@@ -85,7 +85,6 @@ sass/
 * Collapsing and hiding
 * Rearrangement
 
-
 ## Responsive images - 3 Use Cases - [More Info](https://github.com/barryblando/modern-workflow)
 
 * Resolution Switching - Large screen to small screen - (Decrease image resolution on smaller screen)
