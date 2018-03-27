@@ -1,10 +1,12 @@
 # Project-Natours
 
+## Features
+
 * B.E.M
 
 * Advanced CSS and SASS
 
-* Animations without JS
+* Animations without Javascript
 
 * NPM  Scripts
 
@@ -74,6 +76,15 @@ sass/
 * FlexBox Layout
 * CSS Grid Layout
 * Layout Centering Techniques [Guide](https://dev.to/alanfall/css-layout-centering-techniques--608)
+
+### A modern UI will combine all of these techniques to create a responsive design - [More Info](https://dev.to/mortoray/what-is-responsive-layout-5791)
+
+* Dependent Sizes
+* Columns and flowing
+* Expanding coverage
+* Collapsing and hiding
+* Rearrangement
+
 
 ## Responsive images - 3 Use Cases - [More Info](https://github.com/barryblando/modern-workflow)
 
