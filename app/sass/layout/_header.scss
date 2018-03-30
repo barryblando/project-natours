@@ -27,8 +27,9 @@
   }
 
   // ------------------------------------------------------------------------------------------------
-  // Whenever the resolution is higher than 192 dots per inch and larger than 600px or(,) > 2000px
-  // -webkit-min-device-pixel-ratio for Safari
+  // When the resolution is higher than 192 dots per inch and larger than 600px(37.5em) or(,)
+  // if -webkit-min-device-pixel-ratio is 2.0 for Safari and larger than 600px(37.5rem) or(,)
+  // larger than 2000px(125em)
   // ------------------------------------------------------------------------------------------------
   @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
          only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
