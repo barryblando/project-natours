@@ -4,8 +4,9 @@
   margin: 0 auto;
 
   &:not(:last-child) {
-    // select everything except the last child using :not()
-    // INFO: :last-child selector allows you to target the last element directly inside its containing/parent element.
+    // select every row except the last row using :not()
+    // :last-child selector allows you to target the last element directly inside its containing/parent element.
+    // INFO: https://codepen.io/Retr0_0x315/pen/WzmYov
     margin-bottom: $gutter-vertical;
 
     @include respond(tab-port) {
