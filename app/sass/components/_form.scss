@@ -47,7 +47,6 @@
 
   // label/element should be after the input/element in order to be selected with the adjacent sibling selector +
   // label that come immediately after any input of the same parent element
-  // label for & input id must be the same name
   &__input:placeholder-shown + &__label {
     // as soon as someone types on input these styles will be gone and label would be animated
     opacity: 0;
@@ -102,6 +101,7 @@
 
   // Set radio-button::after opacity to 1 when selected & checked that are preceded by a radio-input element with the same parent
   // select sibling radio-label and then child radio-button using general sibling selector ~
+  // label for & input id must have the same name
   &__radio-input:checked ~ &__radio-label &__radio-button::after {
     opacity: 1;
   }
