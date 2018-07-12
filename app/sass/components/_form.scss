@@ -47,6 +47,7 @@
 
   // label/element should be after the input/element in order to be selected with the adjacent sibling selector +
   // label that come immediately after any input of the same parent element
+  // label for & input id must be the same name
   &__input:placeholder-shown + &__label {
     // as soon as someone types on input these styles will be gone and label would be animated
     opacity: 0;
