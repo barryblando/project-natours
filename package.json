@@ -14,11 +14,16 @@
     "compress:css": "node-sass app/css/style.prefix.css app/css/style.css --output-style compressed",
     "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
   },
+  "engines": {
+    "node": "10.5.0",
+    "yarn": "1.7.0"
+  },
   "author": "Retr0_0x315 <barryblando@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^8.1.0",
     "concat": "^1.0.3",
+    "live-server": "^1.2.0",
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.2",
     "postcss-cli": "^5.0.0",
