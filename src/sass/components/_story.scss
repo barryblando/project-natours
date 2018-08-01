@@ -1,0 +1,90 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: rgba($color-white, .6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem; // 6 + 3rem offset of shape from translateX
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
+  }
+
+  @include respond(phone) {
+    transform: skewX(0);
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left; // element must be floated in order for circle to work
+    transform: translateX(-3rem) skewX(12deg); // when adjusting position of a floated element use transform: translate
+    position: relative;
+    overflow: hidden; // fixed overflowing image size
+    border-radius: 50%;
+
+    // --------------------------------------------------------------------------------------
+    // If browser support this property then apply this style else apply default style
+    // this shape-outside is currently not supported by Older Firefox & Safari
+    // --------------------------------------------------------------------------------------
+    @supports (clip-path: circle(0 at 0 0)) or (-webkit-clip-path: circle(0 at 0 0)) {
+      -webkit-shape-outside: circle(50% at 50% 50%); // shape-outside only works if element has width & height declared
+      shape-outside: circle(50% at 50% 50%); // make content float around the shape circle element. 50%, half of the width & height 15/2 = 7.5
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%); // make shape circle
+      border-radius: none;
+    }
+
+    @include respond(phone) {
+      transform: translateX(-3rem) skewX(0);
+    }
+  }
+
+  &__img {
+    height: 100%; // Hundred % of parent height which is 15rem
+    transform: translateX(-4rem) scale(1.4);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; // fix shape circle problem when translating
+    transition: all .5s;
+    // NOTE: Below fixes image wiggling after hovering parent element, Browser Bug(Chrome 64.0.3282.167).
+    filter: blur(0.3px); // the lowest value I could get on my machine: 0.12805650383234025436px
+    image-rendering: -webkit-optimize-contrast; // just in case quality degrades
+  }
+
+  &__text {
+    transform: skewX(12deg);
+
+    @include respond(phone) {
+      transform: translateX(-2rem) skewX(0);
+    }
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%); // X Y
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden; // fix text shaking
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}

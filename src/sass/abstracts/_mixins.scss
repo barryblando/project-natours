@@ -1,0 +1,50 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin position-absolute-center {
+  // translate(X, Y) X starts at left to right, Y starts at top to bottom
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); // shift it back by half of its size using a negative 50%
+}
+
+//  MEDIA QUERY MANAGER - DESKTOP APPROACH
+
+//   0 - 600px: Phone --------------------|
+//   600 - 900px: Tablet portrait         |--> max-width for this range
+//   900 - 1200px: Tablet landscape ------|
+//   [1200 - 1800] is where normal styles apply
+//   1800px+ : Big desktop -----> min-width for this range
+
+//   $breakpoint argument choices:
+//   - phone
+//   - tab-port
+//   - tab-land
+//   - big-desktop
+
+// ORDER: Base + Typography > General Layout + grid > page layout > components
+
+// when in media query em & rem can't be affected by root: HTML font-size setting, it is always dependent on browser default font size
+// Gonna use em 'cause rem fail in some of the browser, ems are best option for media queries
+// 1em = 16px
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) { @content; }   // < 600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) { @content; }  // < 900px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) { @content; }     // < 1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) { @content; }  // 1800px >
+  }
+}
